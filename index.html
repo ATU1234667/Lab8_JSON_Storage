@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#203965">
+  <title>Список покупок — Лабораторная №8</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <span class="eyebrow">Лабораторная работа № 8 · Вариант № 1</span>
+      <h1>Список покупок</h1>
+      <p>Добавляйте товары: список сохранится после обновления страницы.</p>
+    </header>
+
+    <section class="panel" aria-labelledby="list-heading">
+      <div class="panel-heading">
+        <div>
+          <span class="section-label">МОИ ПОКУПКИ</span>
+          <h2 id="list-heading">Что нужно купить</h2>
+        </div>
+        <span class="counter" id="counter" aria-live="polite">0 товаров</span>
+      </div>
+
+      <form id="shopping-form" class="input-row" autocomplete="off">
+        <label class="sr-only" for="item-name">Название товара</label>
+        <input id="item-name" name="item-name" type="text"
+               maxlength="80" placeholder="Например, молоко" required>
+        <button class="button button-primary" type="submit">+ Добавить</button>
+      </form>
+      <p class="hint">Введите название товара и нажмите Enter или «Добавить».</p>
+      <p id="notice" class="notice" role="status" aria-live="polite" hidden></p>
+
+      <div id="empty-state" class="empty-state">
+        <div class="empty-icon" aria-hidden="true">✦</div>
+        <strong>Ваш список пока пуст</strong>
+        <span>Начните с первого товара.</span>
+      </div>
+      <ul id="shopping-list" class="shopping-list" aria-label="Список товаров"></ul>
+
+      <div class="toolbar">
+        <span class="storage-label">Данные сохраняются в localStorage</span>
+        <button type="button" id="clear-all" class="text-button" disabled>Очистить список</button>
+      </div>
+    </section>
+
+    <section class="data-panel" aria-label="Импорт и экспорт JSON">
+      <div>
+        <h2>Резервная копия</h2>
+        <p>При необходимости экспортируйте список в JSON или восстановите его из файла.</p>
+      </div>
+      <div class="data-actions">
+        <button type="button" id="export-json" class="button button-secondary" disabled>Экспорт JSON</button>
+        <button type="button" id="import-json" class="button button-secondary">Импорт JSON</button>
+        <input id="file-input" class="sr-only" type="file" accept=".json,application/json">
+      </div>
+    </section>
+    <footer>HTML · CSS · JavaScript &nbsp; | &nbsp; JSON · Web Storage</footer>
+  </main>
+</body>
+</html>
